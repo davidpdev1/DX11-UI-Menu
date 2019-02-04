@@ -195,7 +195,6 @@ Base::Base() : m_vertexBuffer(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST, MAX_RECT_VE
 Base::~Base() {
 	m_pVertexShader->Release();
 	m_pPixelShader->Release();
-	m_pBlendState->Release();
 	m_pLayout->Release();
 	m_pTexture->Release();
 	delete m_pSpriteBatch;

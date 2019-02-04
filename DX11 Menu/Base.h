@@ -15,7 +15,6 @@ private:
 	ID3D11VertexShader *m_pVertexShader;
 	ID3D11PixelShader *m_pPixelShader;
 	ID3D11InputLayout *m_pLayout;
-	ID3D11BlendState *m_pBlendState;
 
 	VertexBuffer m_vertexBuffer; // triangle list topology
 	VertexBuffer m_lsVertexBuffer; // Line strip topology
