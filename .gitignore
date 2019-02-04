@@ -24,7 +24,7 @@
 *.lai
 *.la
 *.a
-*.lib
+DX11 Menu/*.lib
 
 # Executables
 *.exe
@@ -40,3 +40,6 @@ Debug/DX11 Menu.ilk
 *.idb
 *.aps
 *.opendb
+*.ilk
+*.ilk
+x64/Debug/DX11 Menu.ilk
