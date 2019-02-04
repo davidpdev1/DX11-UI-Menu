@@ -6,6 +6,8 @@ class Checkbox : public WindowComponent {
 	static float m_boxSize;  // 16
 	static float m_checkedBoxSize; // 12   check .cpp to edit
 
+	const float m_labelPadding = 4; // # of pixels inbetween the box and the text
+
 	DXColor m_boxColor = { 50.f / 255.f, 54.f / 255.f, 57.f / 255.f, 1 };
 	
 	DXColor m_borderColor = { 90.f / 255.f, 94.f / 255.f, 97.f / 255.f, 1 };
@@ -27,7 +29,7 @@ class Checkbox : public WindowComponent {
 			float offsetToCenter = (m_boxSize - m_checkedBoxSize) / 2.f;
 			DrawRect(m_position.x + offsetToCenter, m_position.y + offsetToCenter, m_checkedBoxSize, m_checkedBoxSize, m_selectedColor);
 		}
-		DrawText(m_position.x+m_boxSize + 2/*padding*/, m_position.y - 3, m_text, WHITE, m_textScale);
+		DrawText(m_position.x+m_boxSize + m_labelPadding, m_position.y, m_text, WHITE, m_textScale);
 	}
 
 	void OnMouseEnter() override {

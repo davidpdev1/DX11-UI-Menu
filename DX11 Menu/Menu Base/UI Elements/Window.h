@@ -13,6 +13,9 @@ class Window : public MenuComponent {
 
 	POINT m_dragPointBegin = { INT_MAX, INT_MAX };
 	bool m_isInitFrame = true;
+	std::string m_title;
+	float m_titleHeightOffset;
+	float m_titleLeftOffset = 5;
 
 	std::vector<std::unique_ptr<WindowComponent>> m_windowComponents;
 
@@ -31,8 +34,12 @@ public:
 	Vector2 GetWindowPosition() {
 		return GetPosition();
 	}
+	Vector2 GetWindowSize() {
+		return GetSize();
+	}
 protected:
 	virtual void OnWindowRender() { }
 	virtual void OnBuild() { }
 	void AddCheckbox(float x, float y, std::string text, bool *toggle);
+	void SetTitle(std::string title);
 };

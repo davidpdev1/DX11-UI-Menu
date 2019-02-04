@@ -45,6 +45,9 @@ void Window::OnRender() {
 
 		for (int i = 0; i < m_windowComponents.size(); i++)
 			m_windowComponents[i]->Render();
+
+		GetBase()->DrawText(pos.x + m_titleLeftOffset, pos.y + m_titleHeightOffset, m_title, WHITE, 1.f);
+
 		OnWindowRender();
 	}
 }
@@ -85,4 +88,10 @@ void Window::AddCheckbox(float x, float y, std::string text, bool * toggle) {
 	std::unique_ptr<Checkbox> checkbox = std::make_unique<Checkbox>(this, Vector2(x, y + WINDOW_TITLE_RECT_SIZE), text, toggle);
 	m_windowComponents.push_back(std::move(checkbox));
 
+}
+
+void Window::SetTitle(std::string title)
+{
+	m_title = title;
+	m_titleHeightOffset = round(WINDOW_TITLE_RECT_SIZE / 4);
 }
