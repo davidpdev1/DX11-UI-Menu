@@ -30,3 +30,12 @@
 *.exe
 *.out
 *.app
+.vs/DX11 Menu/v15/.suo
+*.db
+*.ipch
+Debug/DX11 Menu.ilk
+*.pdb
+*.log
+*.tlog
+*.idb
+*.aps
