@@ -5,7 +5,7 @@ class MainWindow : public Window
 	bool m_checkMeTest;
 
 	void OnWindowRender() override {
-		
+
 	}
 
 	// Add UI elements here. It is executed once on the render thread.
