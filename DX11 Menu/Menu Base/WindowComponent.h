@@ -5,6 +5,7 @@ class WindowComponent : public MenuComponent {
 	Vector2 m_windowPreviousPosition;
 
 
+
 	void OnRenderAlt() override {
 		if (m_windowPreviousPosition != m_pParent->GetWindowPosition())
 			SetPosition(Vector2(m_pParent->GetWindowPosition().x + m_position.x, m_pParent->GetWindowPosition().y + m_position.y));
@@ -16,16 +17,10 @@ public:
 	}
 protected:
 	Vector2 m_position;
-	void DrawText(float x, float y, std::string text, DXColor color, float scale = 1.f) {
-		Vector2 window = m_pParent->GetWindowPosition();
-		GetBase()->DrawText(window.x + x, window.y + y, text, color);
+	Window *GetParent() {
+		return m_pParent;
 	}
-	void DrawRectOutline(float x, float y, float width, float height, float thickness, DXColor color) {
-		Vector2 window = m_pParent->GetWindowPosition();
-		GetBase()->DrawRectOutline(window.x + x, window.y + y, width, height, thickness, color);
-	}
-	void DrawRect(float x, float y, float width, float height, DXColor color) {
-		Vector2 window = m_pParent->GetWindowPosition();
-		GetBase()->DrawRect(window.x + x, window.y + y, width, height, color);
-	}
+	void DrawText(float x, float y, std::string text, DXColor color, float scale = 1.f);
+	void DrawRectOutline(float x, float y, float width, float height, float thickness, DXColor color);
+	void DrawRect(float x, float y, float width, float height, DXColor color);
 };

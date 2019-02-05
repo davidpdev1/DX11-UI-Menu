@@ -13,7 +13,9 @@ class MainWindow : public Window
 		SetTitle("Main Window");
 		printf("Built!\n");
 		AddCheckbox(5, 5, "Check me!", &m_checkMeTest);
-		AddCheckbox(5, 5 + 5 + Checkbox::GetHeight(), "Check me!", &m_checkMeTest);
+		AddGroupbox(5, 5, 50, 50, "Hello", [=]{
+			AddCheckbox(5, 5 + 5 + Checkbox::GetHeight(), "Check me!", &m_checkMeTest);
+		});
 	}
 
 public:

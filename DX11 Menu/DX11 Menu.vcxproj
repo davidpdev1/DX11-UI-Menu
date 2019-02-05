@@ -76,7 +76,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(SolutionDir)$(ProjectName)\;$(ProjectDir)Menu Base\UI Elements;$(ProjectDir)Menu Base\UI Windows;$(ProjectDir)\Menu Base;$(IncludePath)</IncludePath>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(SolutionDir)$(ProjectName)\;$(ProjectDir)Menu Base\UI Elements;$(ProjectDir)Menu Base\UI Windows;$(ProjectDir)Menu Base\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -152,7 +152,7 @@
   <ItemGroup>
     <ClInclude Include="Base.h" />
     <ClInclude Include="DX11 Menu.h" />
-    <ClInclude Include="Groupbox.h" />
+    <ClInclude Include="Menu Base\UI Elements\Groupbox.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="Menu Base\UI Windows\MainWindow.h" />
     <ClInclude Include="Menu Base\MenuComponent.h" />
@@ -167,7 +167,7 @@
   <ItemGroup>
     <ClCompile Include="Base.cpp" />
     <ClCompile Include="DX11 Menu.cpp" />
-    <ClCompile Include="Groupbox.cpp" />
+    <ClCompile Include="Menu Base\UI Elements\Groupbox.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="Menu Base\UI Windows\MainWindow.cpp" />
     <ClCompile Include="Menu Base\MenuComponent.cpp" />

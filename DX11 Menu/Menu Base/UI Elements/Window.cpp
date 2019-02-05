@@ -1,7 +1,8 @@
 #include "stdafx.h"
 #include "Window.h"
 #include "Checkbox.h"
-#include "../WindowComponent.h"
+#include "WindowComponent.h"
+#include "Groupbox.h"
 
 void Window::OnRender() {
 	if (GetBase() != nullptr) {
@@ -82,12 +83,33 @@ void Window::OnKeyDown(DWORD key) {
 
 	}
 }
+
+// Updates x & y to be placed at the right place in a groupbox if needed.
+
+void Window::HandleGroupbox(float * x, float * y) {
+	if (Groupbox::IsPartOfGroupbox()) {
+		Groupbox *gb = Groupbox::GetActiveGroupbox();
+		if (gb) {
+			Vector2 offset = gb->GetOffset();
+			*x += offset.x;
+			*y += offset.y;
+		}
+	}
+}
 Window::Window() : MenuComponent(Vector2(50, 50), Vector2(600, 400)) { }
 
 void Window::AddCheckbox(float x, float y, std::string text, bool * toggle) {
+	HandleGroupbox(&x, &y);
 	std::unique_ptr<Checkbox> checkbox = std::make_unique<Checkbox>(this, Vector2(x, y + WINDOW_TITLE_RECT_SIZE), text, toggle);
 	m_windowComponents.push_back(std::move(checkbox));
 
+}
+
+void Window::AddGroupbox(float x, float y, float width, float height, std::string name, std::function<void()> items)
+{
+	std::unique_ptr<Groupbox> gb = std::make_unique<Groupbox>(this, Vector2(x, y + WINDOW_TITLE_RECT_SIZE), Vector2(width, height));
+	m_windowComponents.push_back(std::move(gb));
+	gb->Register(items);
 }
 
 void Window::SetTitle(std::string title)

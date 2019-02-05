@@ -1,8 +1,8 @@
 #pragma once
 #include "stdafx.h"
-#include <iostream>
 class Checkbox;
 class WindowComponent;
+class Groupbox;
 
 class Window : public MenuComponent {
 	const float WINDOW_OUTLINE_SIZE = 1.f;
@@ -27,7 +27,8 @@ class Window : public MenuComponent {
 
 	void OnKeyDown(DWORD key) override;
 
-	
+	// Updates x & y to be placed at the right place in a groupbox if needed.
+	void HandleGroupbox(float *x, float *y);
 
 public:
 	Window();
@@ -41,5 +42,6 @@ protected:
 	virtual void OnWindowRender() { }
 	virtual void OnBuild() { }
 	void AddCheckbox(float x, float y, std::string text, bool *toggle);
+	void AddGroupbox(float x, float y, float width, float height, std::string name, std::function<void()> items);
 	void SetTitle(std::string title);
 };
