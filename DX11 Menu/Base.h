@@ -28,6 +28,7 @@ private:
 	void InitPipeline();
 public:
 	Vector2 GetTextFontSize(std::string str, float scale);
+	void DrawFilledCircle(float x, float y, float radius, DXColor color);
 	void DrawText(float x, float y, std::string text, DXColor color, float scale = 1.f);
 	void DrawCircle(float x, float y, float radius, DXColor color);
 	/*

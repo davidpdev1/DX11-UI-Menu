@@ -69,7 +69,7 @@ DWORD getTime() {
 #define WHITE {1,1,1,1}
 
 #define MAX_VERTICES 100
-#define MAX_RECT_VERTICES 1000
+#define MAX_RECT_VERTICES 10000
 #define MAX_LS_VERTICES 1000
 #define CRITICAL(error) {fprintf(stderr, "CRITICAL ERROR: %s\n", error); __debugbreak();}
 /*
