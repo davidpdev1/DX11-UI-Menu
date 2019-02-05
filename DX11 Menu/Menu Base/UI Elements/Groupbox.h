@@ -5,9 +5,9 @@ class Groupbox : public WindowComponent
 	static bool m_bIsPartOfGroupbox;
 	static Groupbox *m_pCurrentGroupbox;
 	Vector2 m_offsetForInsideComponents = Vector2(8, 8);
-
+	DXColor m_borderColor = { 0.5f, 0.5f, 0.5f, 0.05f};
 	void OnRender() override {
-		DXColor m_borderColor = { 255.f, 255.f, 255.f, 0.8f };
+		
 		DrawRect(GetPosition().x, GetPosition().y, GetSize().x, GetSize().y, m_borderColor);
 	}
 public:

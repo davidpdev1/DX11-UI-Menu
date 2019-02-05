@@ -90,7 +90,7 @@ void Window::HandleGroupbox(float * x, float * y) {
 	if (Groupbox::IsPartOfGroupbox()) {
 		Groupbox *gb = Groupbox::GetActiveGroupbox();
 		if (gb) {
-			Vector2 offset = gb->GetOffset();
+			Vector2 offset = gb->GetOffset() + gb->GetPosition() - Vector2(0, WINDOW_TITLE_RECT_SIZE);
 			*x += offset.x;
 			*y += offset.y;
 		}
@@ -100,15 +100,16 @@ Window::Window() : MenuComponent(Vector2(50, 50), Vector2(600, 400)) { }
 
 void Window::AddCheckbox(float x, float y, std::string text, bool * toggle) {
 	HandleGroupbox(&x, &y);
-	std::unique_ptr<Checkbox> checkbox = std::make_unique<Checkbox>(this, Vector2(x, y + WINDOW_TITLE_RECT_SIZE), text, toggle);
-	m_windowComponents.push_back(std::move(checkbox));
+	std::shared_ptr<Checkbox> checkbox = std::make_shared<Checkbox>(this, Vector2(x, y + WINDOW_TITLE_RECT_SIZE), text, toggle);
+	m_windowComponents.push_back(checkbox);
 
 }
 
 void Window::AddGroupbox(float x, float y, float width, float height, std::string name, std::function<void()> items)
 {
-	std::unique_ptr<Groupbox> gb = std::make_unique<Groupbox>(this, Vector2(x, y + WINDOW_TITLE_RECT_SIZE), Vector2(width, height));
-	m_windowComponents.push_back(std::move(gb));
+	std::shared_ptr<Groupbox> gb = std::make_shared<Groupbox>(this, Vector2(x, y + WINDOW_TITLE_RECT_SIZE), Vector2(width, height));
+	m_windowComponents.push_back(gb);
+	
 	gb->Register(items);
 }
 

@@ -17,7 +17,7 @@ class Window : public MenuComponent {
 	float m_titleHeightOffset;
 	float m_titleLeftOffset = 5;
 
-	std::vector<std::unique_ptr<WindowComponent>> m_windowComponents;
+	std::vector<std::shared_ptr<WindowComponent>> m_windowComponents;
 
 	void OnRender() override;
 

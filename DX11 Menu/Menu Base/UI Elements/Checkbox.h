@@ -22,14 +22,14 @@ class Checkbox : public WindowComponent {
 	float m_textScale = 1.0f;
 
 	void OnRender() override {
-		Vector2 myPos = GetPosition();
-		DrawRect(m_position.x, m_position.y, m_boxSize, m_boxSize, m_boxColor);
-		DrawRectOutline(m_position.x, m_position.y, m_boxSize, m_boxSize, 2, currentBorderColor);
+		Vector2 pos = GetPosition();
+		DrawRect(pos.x, pos.y, m_boxSize, m_boxSize, m_boxColor);
+		DrawRectOutline(pos.x, pos.y, m_boxSize, m_boxSize, 2, currentBorderColor);
 		if (*m_pbSelected) {
 			float offsetToCenter = (m_boxSize - m_checkedBoxSize) / 2.f;
-			DrawRect(m_position.x + offsetToCenter, m_position.y + offsetToCenter, m_checkedBoxSize, m_checkedBoxSize, m_selectedColor);
+			DrawRect(pos.x + offsetToCenter, pos.y + offsetToCenter, m_checkedBoxSize, m_checkedBoxSize, m_selectedColor);
 		}
-		DrawText(m_position.x+m_boxSize + m_labelPadding, m_position.y, m_text, WHITE, m_textScale);
+		DrawText(pos.x+m_boxSize + m_labelPadding, pos.y, m_text, WHITE, m_textScale);
 	}
 
 	void OnMouseEnter() override {

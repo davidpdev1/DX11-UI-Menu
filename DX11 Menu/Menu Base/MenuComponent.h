@@ -53,7 +53,9 @@ protected:
 	virtual void OnMouseClick() { }
 	virtual void OnKeyUp(DWORD key) { }
 	virtual void OnKeyDown(DWORD key) { }
-
+	virtual Vector2 GetPosition() {
+		return m_position;
+	}
 
 	POINT GetMouseRelativePosition();
 
@@ -64,9 +66,7 @@ protected:
 	bool IsMouseOver() {
 		return m_isMouseOver;
 	}
-	Vector2 GetPosition() {
-		return m_position;
-	}
+
 	Vector2 GetSize() {
 		return m_size;
 	}
