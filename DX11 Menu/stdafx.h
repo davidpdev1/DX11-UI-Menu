@@ -67,6 +67,7 @@ DWORD getTime() {
 #define GREEN {0, 1, 0, 1}
 #define BLUE { 0, 0, 1, 1}
 #define WHITE {1,1,1,1}
+#define D3DCOLOR_RGBA(r,g,b,a) {(float)(r) / 255.f, (float)(g) / 255.f, (float)(b) / 255.f, (float)(a) / 255.f}
 
 #define MAX_VERTICES 100
 #define MAX_RECT_VERTICES 10000
@@ -92,4 +93,6 @@ Converts x/y pixel coords for a dx vertex
 #include "Window.h"
 #include "WindowComponent.h"
 #include "Checkbox.h"
+#include "Slider.h"
+
 #include "MainWindow.h"

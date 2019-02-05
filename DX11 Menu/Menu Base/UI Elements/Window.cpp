@@ -105,6 +105,14 @@ void Window::AddCheckbox(float x, float y, std::string text, bool * toggle) {
 
 }
 
+void Window::AddSlider(float x, float y, float width)
+{
+	HandleGroupbox(&x, &y);
+	std::shared_ptr<Slider> sl = std::make_shared<Slider>(this, Vector2(x, y + WINDOW_TITLE_RECT_SIZE), width);
+	m_windowComponents.push_back(sl);
+}
+
+
 void Window::AddGroupbox(float x, float y, float width, float height, std::string name, std::function<void()> items)
 {
 	std::shared_ptr<Groupbox> gb = std::make_shared<Groupbox>(this, Vector2(x, y + WINDOW_TITLE_RECT_SIZE), Vector2(width, height));
@@ -112,6 +120,8 @@ void Window::AddGroupbox(float x, float y, float width, float height, std::strin
 	
 	gb->Register(items);
 }
+
+
 
 void Window::SetTitle(std::string title)
 {

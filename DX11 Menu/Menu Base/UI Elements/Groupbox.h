@@ -7,8 +7,9 @@ class Groupbox : public WindowComponent
 	Vector2 m_offsetForInsideComponents = Vector2(8, 8);
 	DXColor m_borderColor = { 0.5f, 0.5f, 0.5f, 0.05f};
 	void OnRender() override {
-		
-		DrawRect(GetPosition().x, GetPosition().y, GetSize().x, GetSize().y, m_borderColor);
+		Vector2 position = GetPosition();
+		Vector2 size = GetSize();
+		DrawRect(position.x, position.y, size.x, size.y, m_borderColor);
 	}
 public:
 	Groupbox(Window *parent, Vector2 pos, Vector2 scale);

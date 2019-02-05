@@ -3,6 +3,7 @@
 class Checkbox;
 class WindowComponent;
 class Groupbox;
+class Slider;
 
 class Window : public MenuComponent {
 	const float WINDOW_OUTLINE_SIZE = 1.f;
@@ -43,5 +44,7 @@ protected:
 	virtual void OnBuild() { }
 	void AddCheckbox(float x, float y, std::string text, bool *toggle);
 	void AddGroupbox(float x, float y, float width, float height, std::string name, std::function<void()> items);
+	void AddSlider(float x, float y, float width);
 	void SetTitle(std::string title);
 };
+

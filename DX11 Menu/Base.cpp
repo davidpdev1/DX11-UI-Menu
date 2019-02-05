@@ -61,7 +61,7 @@ void Base::DrawText(float x, float y, std::string text, DXColor color, float sca
 void Base::DrawCircle(float x, float y, float radius, DXColor color) {
 
 	vertex_list circle;
-	const int NUMPOINTS = 5;
+	const int NUMPOINTS = 50;
 	float WedgeAngle = (float)((2 * XM_PI) / NUMPOINTS);
 	for (int i = 0; i <= NUMPOINTS; i++)
 	{
@@ -84,26 +84,24 @@ void Base::DrawCircle(float x, float y, float radius, DXColor color) {
 // Render sprite instead?
 void Base::DrawFilledCircle(float x, float y, float radius, DXColor color) {
 	vertex_list circle;
-	const int NUMPOINTS = 100;
+	const int NUMPOINTS = 50;
 	float WedgeAngle = (float)((2 * XM_PI) / NUMPOINTS);
 	for (int i = 0; i < NUMPOINTS; i++) {
 		float Theta = (float)((i+1) * WedgeAngle);
 		float xn = (float)(x + radius * cos(Theta));
 		float yn = (float)(y - radius * sin(Theta));
 		
-		m_vertexBuffer.Push<Vertex>({ C2DX_X(x), C2DX_Y(y), 0, RED });
-		m_vertexBuffer.Push<Vertex>({ C2DX_X(xn - 0.5f), C2DX_Y(yn - 0.5f), 0, RED });
+		m_vertexBuffer.Push<Vertex>({ C2DX_X(x), C2DX_Y(y), 0, color });
+		m_vertexBuffer.Push<Vertex>({ C2DX_X(xn - 0.5f), C2DX_Y(yn - 0.5f), 0, color });
 		Theta = (float)((i) * WedgeAngle);
 		xn = (float)(x + radius * cos(Theta));
 		yn = (float)(y - radius * sin(Theta));
-		m_vertexBuffer.Push<Vertex>({ C2DX_X(xn - 0.5f), C2DX_Y(yn - 0.5f), 0, RED });
+		m_vertexBuffer.Push<Vertex>({ C2DX_X(xn - 0.5f), C2DX_Y(yn - 0.5f), 0, color });
 	}
 }
 
 void Base::DrawRect(float x, float y, float width, float height, DXColor color) {
 	
-	DrawFilledCircle(900, 200, 50, RED);
-	DrawCircle(900, 200, 50, GREEN);
 	x = C2DX_X(x);
 	y = C2DX_Y(y);
 	width = C2DX_W(width);

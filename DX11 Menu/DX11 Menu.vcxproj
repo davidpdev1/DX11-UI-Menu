@@ -157,6 +157,7 @@
     <ClInclude Include="Menu Base\UI Windows\MainWindow.h" />
     <ClInclude Include="Menu Base\MenuComponent.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="Menu Base\UI Elements\Slider.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Menu Base\UI Elements\Checkbox.h" />
@@ -171,6 +172,7 @@
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="Menu Base\UI Windows\MainWindow.cpp" />
     <ClCompile Include="Menu Base\MenuComponent.cpp" />
+    <ClCompile Include="Menu Base\UI Elements\Slider.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
