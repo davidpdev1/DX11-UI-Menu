@@ -189,7 +189,9 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="DX11 Menu.ico" />
-    <Image Include="small.ico" />
+    <Image Include="small.ico">
+      <DeploymentContent>false</DeploymentContent>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

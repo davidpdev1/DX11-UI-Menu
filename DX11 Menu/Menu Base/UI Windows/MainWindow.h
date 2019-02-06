@@ -28,8 +28,8 @@ class MainWindow : public Window
 		SetTitle("Main Window");
 		printf("Built!\n");
 		AddCheckbox(5, 5, "Check me!", &m_checkMeTest);
-		AddSlider(5, 15 + Checkbox::GetHeight(), 150);
-		AddGroupbox(5, 100, 200, 100, "Hello", [=]{
+		AddSlider(5, 15 + Checkbox::GetHeight(), 250);
+		AddGroupbox(5, 100, 200, 100, "i am a sentence to test stuff", [=]{
 			AddCheckbox(0, 0 , "Check me! (gb)", &m_checkMeTest);
 		});
 	}

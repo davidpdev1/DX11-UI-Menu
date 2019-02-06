@@ -6,9 +6,9 @@ void WindowComponent::DrawText(float x, float y, std::string text, DXColor color
 	GetBase()->DrawText(window.x + x, window.y + y, text, color);
 }
 
-void WindowComponent::DrawRectOutline(float x, float y, float width, float height, float thickness, DXColor color) {
+void WindowComponent::DrawRectOutline(float x, float y, float width, float height, float thickness, DXColor color, unsigned char flag) {
 	Vector2 window = m_pParent->GetWindowPosition();
-	GetBase()->DrawRectOutline(window.x + x, window.y + y, width, height, thickness, color);
+	GetBase()->DrawRectOutline(window.x + x, window.y + y, width, height, thickness, color, flag);
 }
 
 void WindowComponent::DrawRect(float x, float y, float width, float height, DXColor color) {

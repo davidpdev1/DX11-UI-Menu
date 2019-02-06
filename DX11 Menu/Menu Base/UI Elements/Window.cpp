@@ -115,7 +115,7 @@ void Window::AddSlider(float x, float y, float width)
 
 void Window::AddGroupbox(float x, float y, float width, float height, std::string name, std::function<void()> items)
 {
-	std::shared_ptr<Groupbox> gb = std::make_shared<Groupbox>(this, Vector2(x, y + WINDOW_TITLE_RECT_SIZE), Vector2(width, height));
+	std::shared_ptr<Groupbox> gb = std::make_shared<Groupbox>(this, Vector2(x, y + WINDOW_TITLE_RECT_SIZE), Vector2(width, height), name);
 	m_windowComponents.push_back(gb);
 	
 	gb->Register(items);

@@ -24,7 +24,7 @@ protected:
 		return m_pParent;
 	}
 	void DrawText(float x, float y, std::string text, DXColor color, float scale = 1.f);
-	void DrawRectOutline(float x, float y, float width, float height, float thickness, DXColor color);
+	void DrawRectOutline(float x, float y, float width, float height, float thickness, DXColor color, unsigned char flag = 0);
 	void DrawRect(float x, float y, float width, float height, DXColor color);
 
 };
