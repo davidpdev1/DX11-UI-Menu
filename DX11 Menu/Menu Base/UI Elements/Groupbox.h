@@ -8,6 +8,7 @@ class Groupbox : public WindowComponent
 	DXColor m_borderColor = { 0.5f, 0.5f, 0.5f, 0.05f};
 
 	std::string m_title;
+	const float m_thickness = 1;
 	// These are calculated once
 	Vector2 m_pxTitleSize;
 	Vector2 m_upLineBeginLeft;
@@ -20,13 +21,13 @@ class Groupbox : public WindowComponent
 		Vector2 size = GetSize();
 
 		// Up left 20px long line
-		DrawRect(m_upLineBeginLeft.x, m_upLineBeginLeft.y, 20, 1, m_borderColor);
+		DrawRect(m_upLineBeginLeft.x, m_upLineBeginLeft.y, 20, m_thickness, m_borderColor);
 		// Groupbox name
 		DrawText(m_titleBeginPos.x, m_titleBeginPos.y, m_title, WHITE);
 		// Right line(after name)
-		DrawRect(m_upLineBeginRight.x, m_upLineBeginRight.y, m_upLineRightWidth, 1, m_borderColor);
+		DrawRect(m_upLineBeginRight.x, m_upLineBeginRight.y, m_upLineRightWidth, m_thickness, m_borderColor);
 		// Rest of the full lines
-		DrawRectOutline(position.x, position.y, size.x, size.y, 1, m_borderColor, BORDERIGNORE_TOP);
+		DrawRectOutline(position.x, position.y, size.x, size.y, m_thickness, m_borderColor, BORDERIGNORE_TOP);
 	}
 public:
 	Groupbox(Window *parent, Vector2 pos, Vector2 scale, std::string name);
