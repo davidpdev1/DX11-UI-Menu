@@ -4,6 +4,7 @@
 #define BORDERIGNORE_LEFT 0x2
 #define BORDERIGNORE_BOTTOM 0x4
 #define BORDERIGNORE_RIGHT 0x8
+#define RGBBYTETOFLOAT(b) ((float)b / 255.f)
 class Base {
 private:
 	// Stuff stolen from the game

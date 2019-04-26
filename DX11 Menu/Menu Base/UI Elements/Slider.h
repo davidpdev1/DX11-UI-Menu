@@ -14,7 +14,7 @@ class Slider : public WindowComponent
 	float m_sliderPositionOffset = 0;
 
 	int m_value = 0;
-	int m_max = 500;
+	int m_max = 5;
 
 	DXColor m_lineColor = m_defaultLineColor;
 	DXColor m_boxColor = m_defaultBoxColor;
@@ -43,6 +43,7 @@ class Slider : public WindowComponent
 
 	void OnMouseDown() {
 		Vector2 sliderBeginPos = GetPosition() + GetParent()->GetWindowPosition();
+
 		POINT mousePos = GetMouseRelativePosition();
 		float sliderEndPos = sliderBeginPos.x + GetSize().x;
 		float dragClipDistance = (100.0f / m_max * GetSize().x / 100.0f);

@@ -20,7 +20,7 @@ class MainWindow : public Window
 			frames = 0;
 			time = GetTime() + 1000;
 		}
-		//GetBase()->DrawText(50, 50, std::to_string(fps), RED);
+		GetBase()->DrawText(50, 50, std::to_string(fps), RED);
 	}
 
 	// Add UI elements here. It is executed once on the render thread.

@@ -8,11 +8,11 @@ class Checkbox : public WindowComponent {
 
 	const float m_labelPadding = 4; // # of pixels inbetween the box and the text
 
-	DXColor m_boxColor = { 50.f / 255.f, 54.f / 255.f, 57.f / 255.f, 1 };
+	DXColor m_boxColor = D3DCOLOR_RGBA(50, 54, 57, 255);
 	
-	DXColor m_borderColor = { 90.f / 255.f, 94.f / 255.f, 97.f / 255.f, 1 };
-	DXColor m_mouseOverBorderColor = { 180.f / 255.f, 184.f / 255.f, 187.f / 255.f, 1 };
-	DXColor m_selectedColor = { 230.f / 255.f, 234.f / 255.f, 237.f / 255.f, 1 };
+	DXColor m_borderColor = D3DCOLOR_RGBA(90, 94, 97, 255);
+	DXColor m_mouseOverBorderColor = D3DCOLOR_RGBA(180, 184, 187, 255);
+	DXColor m_selectedColor = D3DCOLOR_RGBA(230, 234, 237, 255);;
 
 	DXColor currentBorderColor = m_borderColor;
 	DXColor currentBoxBackground = m_boxColor;

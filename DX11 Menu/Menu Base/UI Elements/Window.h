@@ -8,9 +8,9 @@ class Slider;
 class Window : public MenuComponent {
 	const float WINDOW_OUTLINE_SIZE = 1.f;
 	const float WINDOW_TITLE_RECT_SIZE = 30;
-	DXColor m_titleBoxColor = { 200.f / 255.f, 0, 0, 0.8f };
-	DXColor m_backgroundColor = { 30.f / 255.f, 34.f / 255.f, 37.f / 255.f, 0.8f };
-	DXColor m_borderColor = { 50.f / 255.f, 54.f / 255.f, 57.f / 255.f, 0.8f };
+	DXColor m_titleBoxColor = D3DCOLOR_RGBA(200, 0, 0, 204);
+	DXColor m_backgroundColor = D3DCOLOR_RGBA(30, 34, 37, 204);
+	DXColor m_borderColor = D3DCOLOR_RGBA(50, 54, 57, 204);
 
 	POINT m_dragPointBegin = { INT_MAX, INT_MAX };
 	bool m_isInitFrame = true;
