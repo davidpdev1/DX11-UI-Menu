@@ -13,7 +13,7 @@ class Slider : public WindowComponent
 
 	float m_sliderPositionOffset = 0;
 
-	int m_value = 0;
+	int* m_value = 0;
 	int m_max = 500;
 
 	DXColor m_lineColor = m_defaultLineColor;
