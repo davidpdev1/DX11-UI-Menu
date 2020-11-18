@@ -21,7 +21,7 @@ public:
 	void Render();
 
 protected:
-	virtual void OnRender() { }
+	virtual void OnRender() = 0;
 	virtual void OnRenderAlt() { }
 	virtual void OnMouseEnter() { }
 	virtual void OnMouseLeave() { }
