@@ -16,6 +16,20 @@ void MenuComponent::MouseLeave() {
 	m_isMouseOver = false;
 }
 
+MenuComponent::MenuComponent(Vector2 position, Vector2 size) : m_position(position), m_size(size) {
+	Input::Get()->RegisterCallback([=](bool keyup, DWORD key) {
+		if (key == VK_LBUTTON)
+			if (keyup) {
+				OnMouseClick();
+				OnMouseUp();
+			}
+			else
+				OnMouseDown();
+		else
+			keyup ? OnKeyUp(key) : OnKeyDown(key);
+	});
+}
+
 void MenuComponent::Render() {
 	// Verify if mouse is in the component
 	POINT p = GetMouseRelativePosition();

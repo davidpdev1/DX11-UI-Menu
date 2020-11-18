@@ -15,16 +15,6 @@ struct FColor {
 };
 
 
-
-
-
-
-
-
-
-
-
-
 class Graphics {
 public:
 	static const int m_screenWidth = 1920;
@@ -128,7 +118,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 	return 0;
 }
 
-
 int APIENTRY wWinMain(HINSTANCE hInstance,
 	HINSTANCE hPrevInstance,
 	LPWSTR    lpCmdLine,
@@ -139,7 +128,6 @@ int APIENTRY wWinMain(HINSTANCE hInstance,
 	freopen("conin$", "r", stdin);
 	freopen("conout$", "w", stdout);
 	freopen("conout$", "w", stderr);
-	Sleep(500);
 	HWND hWnd;
 	WNDCLASSEX wc = { 0 };
 

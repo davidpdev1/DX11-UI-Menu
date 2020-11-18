@@ -1,16 +1,19 @@
 #include "stdafx.h"
 #pragma once
+
 struct DXColor {
 	float r;
 	float g;
 	float b;
 	float a;
 };
+
 struct Vertex {
 	float x, y, z;
 	DXColor color;
 	Vertex(float x, float y, float z, DXColor color) : x(x), y(y), z(z), color(color) {}
 };
+
 class VertexBuffer {
 	ID3D11Buffer *m_pVertexBuffer;
 	std::vector<Vertex> m_vertices;

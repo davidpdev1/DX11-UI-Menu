@@ -77,11 +77,6 @@ void Window::OnMouseUp() {
 }
 
 void Window::OnKeyDown(DWORD key) {
-	if (key == 'Z') {
-		int r, g, b;
-		printf("Enter R: ");
-
-	}
 }
 
 // Updates x & y to be placed at the right place in a groupbox if needed.
@@ -98,22 +93,22 @@ void Window::HandleGroupbox(float * x, float * y) {
 }
 Window::Window() : MenuComponent(Vector2(50, 50), Vector2(600, 400)) { }
 
-void Window::AddCheckbox(float x, float y, std::string text, bool * toggle) {
+void Window::AddCheckbox(float x, float y, const std::string& text, bool * toggle) {
 	HandleGroupbox(&x, &y);
 	std::shared_ptr<Checkbox> checkbox = std::make_shared<Checkbox>(this, Vector2(x, y + WINDOW_TITLE_RECT_SIZE), text, toggle);
 	m_windowComponents.push_back(checkbox);
 
 }
 
-void Window::AddSlider(float x, float y, float width)
+void Window::AddSlider(float x, float y, float width, int* value, int max)
 {
 	HandleGroupbox(&x, &y);
-	std::shared_ptr<Slider> sl = std::make_shared<Slider>(this, Vector2(x, y + WINDOW_TITLE_RECT_SIZE), width);
+	std::shared_ptr<Slider> sl = std::make_shared<Slider>(this, Vector2(x, y + WINDOW_TITLE_RECT_SIZE), width, value, max);
 	m_windowComponents.push_back(sl);
 }
 
 
-void Window::AddGroupbox(float x, float y, float width, float height, std::string name, std::function<void()> items)
+void Window::AddGroupbox(float x, float y, float width, float height, const std::string& name, std::function<void()> items)
 {
 	std::shared_ptr<Groupbox> gb = std::make_shared<Groupbox>(this, Vector2(x, y + WINDOW_TITLE_RECT_SIZE), Vector2(width, height), name);
 	m_windowComponents.push_back(gb);

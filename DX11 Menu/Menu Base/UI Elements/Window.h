@@ -33,18 +33,14 @@ class Window : public MenuComponent {
 
 public:
 	Window();
-	Vector2 GetWindowPosition() {
-		return GetPosition();
-	}
-	Vector2 GetWindowSize() {
-		return GetSize();
-	}
+	Vector2 GetWindowPosition() { return GetPosition(); }
+	Vector2 GetWindowSize() { return GetSize(); }
 protected:
 	virtual void OnWindowRender() { }
 	virtual void OnBuild() { }
-	void AddCheckbox(float x, float y, std::string text, bool *toggle);
-	void AddGroupbox(float x, float y, float width, float height, std::string name, std::function<void()> items);
-	void AddSlider(float x, float y, float width);
+	void AddCheckbox(float x, float y, const std::string& text, bool *toggle);
+	void AddGroupbox(float x, float y, float width, float height, const std::string& name, std::function<void()> items);
+	void AddSlider(float x, float y, float width, int* value, int max);
 	void SetTitle(std::string title);
 };
 

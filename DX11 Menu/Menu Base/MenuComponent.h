@@ -9,38 +9,15 @@ private:
 	// Width & Height
 	Vector2 m_size;
 	Vector2 m_offset;
-
 	
 	void MouseEnter();
 	void MouseLeave();
-
-
-
-
-
 public:
-	static void Initialize(Base *pBase) {
-		m_pBase = pBase;
-	}
-	static void SetWindow(HWND hwnd) {
-		m_hWnd = hwnd;
-	}
+	static void Initialize(Base *pBase) { m_pBase = pBase; }
+	static void SetWindow(HWND hwnd) { m_hWnd = hwnd; }
 
 
-	MenuComponent(Vector2 position, Vector2 size) : m_position(position), m_size(size) {
-		Input::Get()->RegisterCallback([=](bool keyup, DWORD key) {
-			if (key == VK_LBUTTON)
-				if (keyup) {
-					OnMouseClick();
-					OnMouseUp();
-				}
-				else
-					OnMouseDown();
-			else
-				keyup ? OnKeyUp(key) : OnKeyDown(key);
-		});
-	}
-
+	MenuComponent(Vector2 position, Vector2 size);
 	void Render();
 
 protected:
@@ -53,27 +30,12 @@ protected:
 	virtual void OnMouseClick() { }
 	virtual void OnKeyUp(DWORD key) { }
 	virtual void OnKeyDown(DWORD key) { }
-	virtual Vector2 GetPosition() {
-		return m_position;
-	}
+	virtual Vector2 GetPosition() { return m_position; }
 
-	POINT GetMouseRelativePosition();
-
-	Base *GetBase() {
-		return m_pBase;
-	}
-
-	bool IsMouseOver() {
-		return m_isMouseOver;
-	}
-
-	Vector2 GetSize() {
-		return m_size;
-	}
-	void SetPosition(Vector2 position) {
-		m_position = position;
-	}
-	void SetSize(Vector2 size) {
-		m_size = size;
-	}
+	inline POINT GetMouseRelativePosition();
+	inline Base *GetBase() { return m_pBase; }
+	inline bool IsMouseOver() { return m_isMouseOver; }
+	inline Vector2 GetSize() { return m_size; }
+	inline void SetPosition(Vector2 position) { m_position = position; }
+	inline void SetSize(Vector2 size) { m_size = size; }
 };

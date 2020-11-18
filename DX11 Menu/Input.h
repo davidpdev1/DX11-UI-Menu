@@ -1,7 +1,6 @@
 #pragma once
 #include "stdafx.h"
 
-// TODO: Callback based stuff
 class Input {
 	struct KeyState {
 		bool pressed;
@@ -12,34 +11,19 @@ class Input {
 	std::unordered_map<DWORD, KeyState> m_Keys;
 	std::vector<std::function<void(bool, DWORD)>> m_callbacks;
 
-	Input();
-	~Input();
+	Input() { }
+	~Input() { }
 public:
-	static Input* Get() {
-		return &m_instance;
-	}
-
+	static Input* Get() { return &m_instance; }
 
 	// void callback(bool keyUpEvent, DWORD vkKeyCode);
 	// if keyUpEvent is false then it means it's a key down event.
-	void RegisterCallback(std::function<void(bool, DWORD)> callback) {
-		m_callbacks.push_back(callback);
-	}
+	void RegisterCallback(std::function<void(bool, DWORD)> callback);
 
-	void ReportKeyUp(DWORD key) {
-		for (auto cb : m_callbacks)
-			cb(1, key);
-		m_Keys[key] = { false, 0 };
-	}
+	void ReportKeyUp(DWORD key);
 
-	void ReportKeyDown(DWORD key, short count) {
-		for (auto cb : m_callbacks)
-			cb(0, key);
-		m_Keys[key] = { true, count };
-	}
+	void ReportKeyDown(DWORD key, short count);
 
-	bool IsKeyDown(DWORD key) {
-		return m_Keys[key].pressed;
-	}
+	bool IsKeyDown(DWORD key);
 };
 

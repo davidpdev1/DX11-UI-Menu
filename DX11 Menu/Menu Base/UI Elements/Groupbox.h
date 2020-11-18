@@ -16,34 +16,16 @@ class Groupbox : public WindowComponent
 	float m_upLineRightWidth;
 	Vector2 m_titleBeginPos;
 
-	void OnRender() override {
-		Vector2 position = GetPosition();
-		Vector2 size = GetSize();
-
-		// Up left 20px long line
-		DrawRect(m_upLineBeginLeft.x, m_upLineBeginLeft.y, 20, m_thickness, m_borderColor);
-		// Groupbox name
-		DrawText(m_titleBeginPos.x, m_titleBeginPos.y, m_title, WHITE);
-		// Right line(after name)
-		DrawRect(m_upLineBeginRight.x, m_upLineBeginRight.y, m_upLineRightWidth, m_thickness, m_borderColor);
-		// Rest of the full lines
-		DrawRectOutline(position.x, position.y, size.x, size.y, m_thickness, m_borderColor, BORDERIGNORE_TOP);
-	}
+	void OnRender() override;
 public:
-	Groupbox(Window *parent, Vector2 pos, Vector2 scale, std::string name);
+	Groupbox(Window *parent, Vector2 pos, Vector2 scale, const std::string& name);
 	~Groupbox();
 
-	static bool IsPartOfGroupbox() {
-		return m_bIsPartOfGroupbox;
-	}
+	static bool IsPartOfGroupbox() { return m_bIsPartOfGroupbox; }
 
-	static Groupbox* GetActiveGroupbox() {
-		return m_pCurrentGroupbox;
-	}
+	static Groupbox* GetActiveGroupbox() { return m_pCurrentGroupbox; }
 
-	Vector2 GetOffset() {
-		return m_offsetForInsideComponents;
-	}
+	Vector2 GetOffset() { return m_offsetForInsideComponents; }
 
 	void Register(std::function<void()> options) {
 		m_bIsPartOfGroupbox = true;
